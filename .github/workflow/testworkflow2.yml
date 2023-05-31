@@ -21,7 +21,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: your-dockerhub-username/nginx-hello-world:latest
+          tags: koleva/nginx-hello-world:latest
 
 
 
