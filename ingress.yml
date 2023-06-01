@@ -4,7 +4,7 @@ metadata:
   name: ingress-myservicea
 spec:
   rules:
-  - host: myservicea.foo.org:https://api.exam-gcp.sonar-dev.shoot.canary.k8s-hana.ondemand.com
+  - host: api.exam-gcp.sonar-dev.shoot.canary.k8s-hana.ondemand.com
     http:
       paths:
       - path: /
@@ -22,7 +22,7 @@ metadata:
   name: ingress-myserviceb
 spec:
   rules:
-  - host: myserviceb.foo.org :https://api.exam-gcp.sonar-dev.shoot.canary.k8s-hana.ondemand.com
+  - host: api.exam-gcp.sonar-dev.shoot.canary.k8s-hana.ondemand.com
     http:
       paths:
       - path: /
