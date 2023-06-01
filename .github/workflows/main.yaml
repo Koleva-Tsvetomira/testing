@@ -55,5 +55,5 @@ jobs:
       # Build and test App Docker Image
       - name: Deploy Web server to Kubernetes with kubectl
         run: |
-          kubectl apply -f bashAppK8s/app-kubernetes-namespace.yml
-          kubectl apply -f bashAppK8s/app-kubernetes.yml
+          kubectl apply -f nginx/nginx-namespace.yml
+          kubectl apply -f nginx/nginx.yml
