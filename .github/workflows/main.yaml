@@ -57,3 +57,13 @@ jobs:
         run: |
           kubectl apply -f nginx/nginx-namespace.yml
           kubectl apply -f nginx/nginx.yml
+          
+      # Install Ingress
+      - name: Deploy Ingress service to Kubernetes
+        run: |
+          helm repo add nginx-stable https://helm.nginx.com/stable 
+          helm update repo
+          helm install ingress nginx-stable/nginx-ingress -n ingress
+          kubectl apply -f deployment/ingress.yaml
+      
+ 
