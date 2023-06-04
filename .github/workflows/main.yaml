@@ -1,4 +1,4 @@
-name: Project Pipeline
+name: Project SAP Pipeline
 
 # Controls when the action will run. 
 on:
@@ -10,7 +10,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -43,27 +43,28 @@ jobs:
           sudo apt-get install -y kubectl
       - name: Setup kubeconfig
         run: |
-          kubectl config use-context kind-kind
+          kubectl config use-context shoot--sonar-dev--exam-gcp
           kubectl get namespaces
+           kubectl get pods  -A 
   
       # Build and test App Docker Image
       - name: Build and test App Docker Image
         run: |
           cd nginx/
-          docker build --tag nginx-app .
+          # docker build --tag nginx-app .
           
       # Build and test App Docker Image
-      - name: Deploy Web server to Kubernetes with kubectl
-        run: |
-          kubectl apply -f nginx/nginx-namespace.yml
-          kubectl apply -f nginx/nginx.yml
+      #- name: Deploy Web server to Kubernetes with kubectl
+      #  run: |
+      #    kubectl apply -f nginx/nginx-namespace.yml
+      #    kubectl apply -f nginx/nginx.yml
           
       # Install Ingress
-      - name: Deploy Ingress service to Kubernetes
-        run: |
-          helm repo add nginx-stable https://helm.nginx.com/stable 
-          helm update repo
-          helm install ingress nginx-stable/nginx-ingress -n ingress
-          kubectl apply -f deployment/ingress.yaml
+      #- name: Deploy Ingress service to Kubernetes
+      #  run: |
+      #    helm repo add nginx-stable https://helm.nginx.com/stable 
+      #    helm update repo
+      #    helm install ingress nginx-stable/nginx-ingress -n ingress
+      #    kubectl apply -f deployment/ingress.yaml
       
  
