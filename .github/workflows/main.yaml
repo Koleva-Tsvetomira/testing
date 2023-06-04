@@ -54,8 +54,8 @@ jobs:
       # Build and test App Docker Image
       - name: Build and test App Docker Image
         run: |
-          cd nginx/
-          # docker build --tag nginx-app .
+          cd nginx/docker
+          docker build --tag nginx-app .
           
       # Build and test App Docker Image
       #- name: Deploy Web server to Kubernetes with kubectl
