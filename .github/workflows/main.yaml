@@ -21,6 +21,7 @@ jobs:
           SUPER_SECRET: ${{secrets.KUBE_CONFIG}}
         run: |
           mkdir $HOME/.kube
+          echo "$SUPER_SECRET"
           echo "$SUPER_SECRET" |  base64 --decode > $HOME/.kube/config
       # Runs a single command using the runners shell
       - name: Install Helm
