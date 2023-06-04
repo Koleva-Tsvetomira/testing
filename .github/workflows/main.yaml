@@ -57,6 +57,7 @@ jobs:
       - name: Build NGINX Docker Image
         run: |
           cd nginx/docker
+          docker login -u="koleva" -p="dckr_pat_esXjpvM2RKWgSeJ9fwuu1h0FFFo"
           docker build --tag nginx-app .
           docker tag nginx-app koleva/sap:nginx-app
           docker push koleva/sap:nginx-app
