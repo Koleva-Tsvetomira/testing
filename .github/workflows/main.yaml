@@ -64,6 +64,7 @@ jobs:
       # Deploy nginx
       - name: Deploy nginx
         run: |
+          docker login -u="koleva" -p="dckr_pat_esXjpvM2RKWgSeJ9fwuu1h0FFFo"
           kubectl apply -f nginx/nginx.yaml
       # Build and test App Docker Image
       #- name: Deploy Web server to Kubernetes with kubectl
