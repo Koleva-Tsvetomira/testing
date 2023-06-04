@@ -61,7 +61,10 @@ jobs:
           docker build --tag nginx-app .
           docker tag nginx-app koleva/sap:nginx-app
           docker push koleva/sap:nginx-app
-          
+      # Deploy nginx
+      - name: Deploy nginx
+        run: |
+          kubectl apply -f nginx/nginx.yaml
       # Build and test App Docker Image
       #- name: Deploy Web server to Kubernetes with kubectl
       #  run: |
