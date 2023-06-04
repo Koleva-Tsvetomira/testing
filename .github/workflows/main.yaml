@@ -54,11 +54,11 @@ jobs:
           helm upgrade -i -n nginx tsvety-controller-nginx ingress-nginx/ingress-nginx
   
       # Build and test App Docker Image
-      - name: Build and test App Docker Image
+      - name: Build NGINX Docker Image
         run: |
           cd nginx/docker
           docker build --tag nginx-app .
-          docker push koleva/sap-tsveti-repo:nginx:latest
+          docker push koleva/sap-tsveti-repo:nginx-app
           
       # Build and test App Docker Image
       #- name: Deploy Web server to Kubernetes with kubectl
