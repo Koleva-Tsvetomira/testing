@@ -49,7 +49,6 @@ jobs:
         run: |
           helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
           helm repo update
-          helm uninstall nginx tsvety-controller-nginx
           helm upgrade -i -n nginx tsvety-controller-nginx ingress-nginx/ingress-nginx
   
       # Build and test App Docker Image
