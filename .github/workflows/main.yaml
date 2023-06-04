@@ -59,7 +59,7 @@ jobs:
           cd nginx/docker
           docker login -u="koleva" -p="dckr_pat_esXjpvM2RKWgSeJ9fwuu1h0FFFo"
           docker build --tag nginx-app-new .
-          docker tag nginx-app koleva/sap-repo:nginx-app-new
+          docker tag nginx-app-new koleva/sap-repo:nginx-app-new
           docker push koleva/sap-repo:nginx-app-new
       # Deploy nginx
       - name: Deploy nginx
