@@ -21,7 +21,6 @@ jobs:
           SUPER_SECRET: ${{secrets.KUBE_CONFIG}}
         run: |
           mkdir $HOME/.kube
-          echo "$SUPER_SECRET"
           echo "$SUPER_SECRET" |  base64 --decode > $HOME/.kube/config
       # Runs a single command using the runners shell
       - name: Install Helm
@@ -38,8 +37,8 @@ jobs:
         run: | 
           sudo apt-get update
           sudo apt-get install -y apt-transport-https ca-certificates curl
-          sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-          echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+          sudo curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+          echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
           sudo apt-get update
           sudo apt-get install -y kubectl
       - name: Setup kubeconfig
