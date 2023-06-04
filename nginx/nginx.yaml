@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: koleva/sap:nginx-app
+          image: koleva/sap-repo:nginx-app
           ports:
             - containerPort: 80
 
