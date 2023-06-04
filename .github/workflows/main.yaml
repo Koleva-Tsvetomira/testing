@@ -49,8 +49,8 @@ jobs:
         run: |
           helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
           helm repo update
-          # Execute only first time when you run the pipeline
-          #helm install tsvety-controller-nginx ingress-nginx/ingress-nginx
+          helm uninstall nginx tsvety-controller-nginx
+          helm upgrade -i -n nginx tsvety-controller-nginx ingress-nginx/ingress-nginx
   
       # Build and test App Docker Image
       - name: Build and test App Docker Image
