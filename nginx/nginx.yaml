@@ -43,7 +43,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: www.api.exam-gcp.sonar-dev.shoot.canary.k8s-hana.ondemand.com
+    - host: www.sap-nginx.com
       http:
         paths:
           - pathType: Prefix
