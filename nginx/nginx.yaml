@@ -19,6 +19,7 @@ spec:
           image: koleva/sap-repo:nginx-app-new
           ports:
             - containerPort: 80
+          imagePullPolicy: Always
 
 ---
 apiVersion: v1
